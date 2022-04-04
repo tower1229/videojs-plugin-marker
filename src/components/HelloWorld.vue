@@ -63,9 +63,7 @@ export default {
             content: 'content2'
           }
         },
-      ],
-      // 是否展示右侧面板
-      panel: false
+      ]
     });
 
   },
