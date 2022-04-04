@@ -82,84 +82,8 @@ class MarkerBar extends Component {
   }
 }
 videojs.registerComponent("MarkerBar", MarkerBar);
-const version = "0.0.1";
-var plugin = `/**
- * css for videojs-marker-plugin
- * With the default plugins for postcss you can
- * - @import files, they will be inlined during build
- * - not worry about browser prefixes, they will be handled
- * - nest selectors. This follows the css specification that is
- *   currently out on some browsers. See https://tabatkins.github.io/specs/css-nesting/
- * - custom properties (aka variables) via the var(--var-name) syntax. See
- *   https://www.w3.org/TR/css-variables-1/
- */
-/* Note: all vars must be defined here, there are no "local" vars */
-:root {
-  --base-font-size: 9;
-  --font-size: 7;
-}
-.video-js {
-  font-size: 12px;
-}
-.video-js .vjs-slider-vertical .vjs-volume-level:before {
-  left: -0.35em;
-}
-.video-js .vjs-play-progress {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.video-js.vjs-marker-plugin {
-  /* This class is added to the video.js element by the plugin by default. */
-  display: block;
-}
-.video-js.vjs-marker-plugin .vjs-marker-bar {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.video-js.vjs-marker-plugin .vjs-marker-point {
-  position: absolute;
-  width: 6px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.9);
-  left: -0.15em;
-}
-.video-js.vjs-marker-plugin .vjs-marker-point .vjs-marker-point-tip {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  font-size: 12px;
-  text-align: left;
-  width: 300px;
-  height: 0;
-}
-.video-js.vjs-marker-plugin .vjs-marker-point .vjs-marker-point-tip .vjs-time-tooltip {
-  max-width: 164px;
-  padding: 8px 12px;
-  bottom: 12px;
-  top: auto;
-  background: white;
-}
-.video-js.vjs-marker-plugin .vjs-marker-point .vjs-marker-point-tip .vjs-time-tooltip::before {
-  content: '';
-  border-top: 10px solid white;
-  border-right: 5px solid transparent;
-  border-bottom: 0 solid transparent;
-  border-left: 5px solid transparent;
-  position: absolute;
-  left: calc(50% - 6px);
-  top: 100%;
-}
-.video-js.vjs-marker-plugin .vjs-marker-point .vjs-marker-point-tip .vjs-marker-point-tip-time {
-  margin: 0 0 4px 0;
-  color: #026DFF;
-  font-weight: bold;
-}
-.video-js.vjs-marker-plugin .vjs-marker-point .vjs-marker-point-tip .vjs-marker-point-tip-content {
-  word-break: break-all;
-  margin: 0;
-  color: rgba(0, 0, 0, 0.7);
-}
-`;
+const version = "0.0.2";
+var plugin = "";
 const Plugin = videojs.getPlugin("plugin");
 const defaults = {};
 class MarkerPlugin extends Plugin {
