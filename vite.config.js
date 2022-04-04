@@ -28,6 +28,7 @@ import vue from '@vitejs/plugin-vue'
 */
 export default defineConfig({
   plugins: [vue()],
+  base: '/videojs-plugin-marker/',
   build: {
     outDir: "docs"
   }
