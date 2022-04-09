@@ -40,6 +40,9 @@ class MarkerPoint extends Component$1 {
       this.mouseDisplay.show();
       this.tip.timeToltip.hide();
     });
+    this.on("mousedown", (ev) => {
+      typeof options.onClick === "function" && options.onClick(ev);
+    });
   }
   createEl() {
     return videojs.dom.createEl("div", {
@@ -47,7 +50,8 @@ class MarkerPoint extends Component$1 {
     });
   }
   updatePosition(duration) {
-    this.el_.style.left = this.offset / duration * 100 + "%";
+    console.log(this.offset, duration);
+    this.el_ && (this.el_.style.left = this.offset / duration * 100 + "%");
   }
 }
 const Component = videojs.getComponent("Component");
@@ -89,7 +93,7 @@ class MarkerBar extends Component {
   }
 }
 videojs.registerComponent("MarkerBar", MarkerBar);
-const version = "0.0.4";
+const version = "0.0.5";
 var plugin = "";
 const Plugin = videojs.getPlugin("plugin");
 const defaults = {};

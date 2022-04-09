@@ -42,8 +42,8 @@ export default {
     })
 
     player.src({
-      src: "https://static.refined-x.com/trans4K720.m3u8",
-      type: "application/x-mpegURL"
+      src: "https://static.refined-x.com/static/1080p.mp4",
+      type: "video/mp4"
     })
 
     player.markerPlugin({
@@ -67,6 +67,10 @@ export default {
           type: 'text',
           data: {
             content: 'content2'
+          },
+          onClick(e) {
+            e.stopPropagation()
+            console.log(`content2 click!`)
           }
         },
       ]
