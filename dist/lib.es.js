@@ -47,11 +47,11 @@ class MarkerPoint extends Component$1 {
     });
   }
   updatePosition(duration) {
-    console.log(this.offset, duration);
     this.el_.style.left = this.offset / duration * 100 + "%";
   }
 }
 const Component = videojs.getComponent("Component");
+let playerDuration;
 class MarkerBar extends Component {
   static build(player, options) {
     if (!(options.markers instanceof Array)) {
@@ -66,14 +66,21 @@ class MarkerBar extends Component {
   constructor(player, options) {
     super(player, options);
     options.markers.forEach((marker) => this.addChild(marker));
-    const onLoadedMetaData = () => {
-      const duration = player.duration();
+    const setMarkers = () => {
       options.markers.forEach((marker) => {
-        marker.updatePosition(duration);
+        marker.updatePosition(playerDuration);
       });
+    };
+    const onLoadedMetaData = () => {
+      playerDuration = player.duration();
+      setMarkers();
       player.off("loadedmetadata", onLoadedMetaData);
     };
-    player.on("loadedmetadata", onLoadedMetaData);
+    if (playerDuration) {
+      setMarkers();
+    } else {
+      player.on("loadedmetadata", onLoadedMetaData);
+    }
   }
   createEl() {
     return videojs.dom.createEl("div", {
@@ -82,16 +89,15 @@ class MarkerBar extends Component {
   }
 }
 videojs.registerComponent("MarkerBar", MarkerBar);
-const version = "0.0.2";
+const version = "0.0.4";
 var plugin = "";
 const Plugin = videojs.getPlugin("plugin");
 const defaults = {};
 class MarkerPlugin extends Plugin {
   constructor(player, options) {
     super(player);
-    this.options = videojs.mergeOptions(defaults, options);
     this.player.addClass("vjs-marker-plugin");
-    this.updateOptions();
+    this.updateOptions(options);
   }
   createMarkerBar() {
     this.markerBar = MarkerBar.build(this.player, {
@@ -100,7 +106,7 @@ class MarkerPlugin extends Plugin {
     return this.markerBar;
   }
   updateOptions(options) {
-    this.options = videojs.mergeOptions(this.options, options);
+    this.options = videojs.mergeOptions(defaults, options);
     if (this.markerBar)
       this.markerBar.dispose();
     const container = this.player.getDescendant(["ControlBar", "ProgressControl", "SeekBar"]);

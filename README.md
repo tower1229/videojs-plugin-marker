@@ -1,6 +1,6 @@
 # videojs-plugin-marker
 
-videojs进度条打点插件。基于[videojs-marker-plugin]()项目二次开发，精简掉面板展示功能并微调样式，使用Vite构建。
+videojs进度条打点插件。基于[videojs-marker-plugin]()项目二次开发，使用Vite构建。
 
 ![preivew](public/img/album.png)
 
@@ -40,4 +40,17 @@ player.markerPlugin({
         },
     ]
 })
+
+// 更新打点信息
+player.markerPlugin().updateOptions({
+    markers: [
+    {
+        offset: 10,
+        type: 'text',
+        data: {
+        content: 'content2'
+        }
+    },
+    ]
+});
 ```

@@ -55,7 +55,13 @@ export default {
           data: {
             content: 'content1'
           }
-        },
+        }
+      ]
+    });
+
+    player.markerPlugin().updateOptions({
+      //  打点信息
+      markers: [
         {
           offset: 10,
           type: 'text',
