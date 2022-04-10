@@ -8,13 +8,7 @@
     <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
   </p>
 
-  <video
-    ref="videoPlayer"
-    class="video-js vjs-theme-fantasy"
-    width="600"
-    height="400"
-    style="margin: auto"
-  ></video>
+  <video ref="videoPlayer" class="video-js" width="600" height="400" style="margin: auto"></video>
 
   <p>
     <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Documentation</a>
@@ -26,7 +20,6 @@
 <script>
 import videojs from 'video.js';
 import 'video.js/dist/video-js.min.css';
-// import '@videojs/themes/dist/fantasy/index.css';
 import "../../lib/main.js";
 
 export default {
@@ -42,7 +35,7 @@ export default {
     })
 
     player.src({
-      src: "https://static.refined-x.com/static/1080p.mp4",
+      src: "https://static.refined-x.com/static/1080p-watermark.mp4",
       type: "video/mp4"
     })
 
@@ -50,27 +43,25 @@ export default {
       //  打点信息
       markers: [
         {
-          offset: 2,
+          offset: 10,
           type: 'text',
           data: {
-            content: 'content1'
+            content: ''
+          },
+          onClick(e) {
+            e.stopPropagation()
+            alert(`mark1 click!`)
           }
-        }
-      ]
-    });
-
-    player.markerPlugin().updateOptions({
-      //  打点信息
-      markers: [
+        },
         {
-          offset: 10,
+          offset: 20,
           type: 'text',
           data: {
             content: 'content2'
           },
           onClick(e) {
             e.stopPropagation()
-            console.log(`content2 click!`)
+            alert(`mark2 click!`)
           }
         },
       ]
