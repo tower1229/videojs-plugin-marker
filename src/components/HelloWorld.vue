@@ -39,7 +39,7 @@ export default {
       type: "video/mp4"
     })
 
-    player.markerPlugin({
+    player.markerPlugin().updateOptions({
       //  打点信息
       markers: [
         {
