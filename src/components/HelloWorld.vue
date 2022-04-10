@@ -44,7 +44,6 @@ export default {
       markers: [
         {
           offset: 10,
-          type: 'text',
           data: {
             content: ''
           },
@@ -55,7 +54,6 @@ export default {
         },
         {
           offset: 20,
-          type: 'text',
           data: {
             content: 'content2'
           },
@@ -76,8 +74,6 @@ export default {
 }
 </script>
 
-<style scoped>
-a {
+<style scoped>a {
   color: #42b983;
-}
-</style>
+}</style>

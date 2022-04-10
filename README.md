@@ -26,7 +26,6 @@ player.markerPlugin({
     markers: [
         {
             offset: 2,
-            type: 'text',
             data: {
                 content: 'content1'
             }
@@ -39,7 +38,6 @@ player.markerPlugin().updateOptions({
     markers: [
     {
         offset: 10,
-        type: 'text',
         data: {
             content: 'content2'
         },
