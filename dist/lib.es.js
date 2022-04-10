@@ -11,7 +11,7 @@ class MarkerPointTip extends Component$1 {
     this.addClass("vjs-marker-point-tip");
     this.timeToltip.el_.innerHTML = `
       <p class="vjs-marker-point-tip-time">${videojs.formatTime(this.options.offset, 600)}</p>
-      <p class="vjs-marker-point-tip-content">${this.options.data.content}</p>
+      <p class="vjs-marker-point-tip-content">${this.options.data ? this.options.data.content : ""}</p>
     `;
   }
   updatePosition() {
@@ -22,7 +22,6 @@ class MarkerPoint extends Component$1 {
   constructor(player, options) {
     super(player, options);
     this.offset = options.offset;
-    this.type = options.type;
     this.data = options.data;
     this.tip = new MarkerPointTip(player, {
       data: this.data,
@@ -93,7 +92,7 @@ class MarkerBar extends Component {
   }
 }
 videojs.registerComponent("MarkerBar", MarkerBar);
-const version = "0.0.5";
+const version = "0.0.6";
 var plugin = "";
 const Plugin = videojs.getPlugin("plugin");
 const defaults = {};

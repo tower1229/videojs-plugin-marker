@@ -43,14 +43,7 @@ export default {
       //  打点信息
       markers: [
         {
-          offset: 10,
-          data: {
-            content: ''
-          },
-          onClick(e) {
-            e.stopPropagation()
-            alert(`mark1 click!`)
-          }
+          offset: 10
         },
         {
           offset: 20,

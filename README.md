@@ -21,14 +21,11 @@ import '@tower1229/videojs-plugin-marker/dist/style.css';
 ```js
 const player = videojs(this.$refs.videoPlayer, options)
 
-//  添加打点信息
+//  设置打点信息
 player.markerPlugin({
     markers: [
         {
-            offset: 2,
-            data: {
-                content: 'content1'
-            }
+            offset: 2
         }
     ]
 })
