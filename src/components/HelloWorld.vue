@@ -23,6 +23,7 @@
       style="margin: 0 10px"
       >文档</a
     >
+    <a href="https://refined-x.com/" style="margin: 0 10px">博客</a>
   </p>
   <p>
     <img
