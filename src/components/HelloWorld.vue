@@ -2,24 +2,40 @@
   <h1>videojs-plugin-marker</h1>
 
   <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
+    videojs进度条打点插件。基于[videojs-marker-plugin]()项目二次开发，支持marker点更新和marker点击事件；更换构建工具为Vite。
   </p>
 
-  <video ref="videoPlayer" class="video-js" width="600" height="400" style="margin: auto"></video>
-
+  <video
+    ref="videoPlayer"
+    class="video-js"
+    width="600"
+    height="400"
+    style="margin: auto"
+  ></video>
   <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Documentation</a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Documentation</a>
+    <a
+      href="https://github.com/tower1229/videojs-plugin-marker"
+      style="margin: 0 10px"
+      >Github</a
+    >
+    <a
+      href="https://github.com/tower1229/videojs-plugin-marker/blob/master/README.md"
+      style="margin: 0 10px"
+      >文档</a
+    >
+  </p>
+  <p>
+    <img
+      src="/img/carbon.png"
+      alt=""
+      style="display: block; max-width: 80%; margin: auto"
+    />
   </p>
 </template>
 
 <script>
-import videojs from 'video.js';
-import 'video.js/dist/video-js.min.css';
+import videojs from "video.js";
+import "video.js/dist/video-js.min.css";
 import "../../lib/main.js";
 
 export default {
@@ -27,46 +43,47 @@ export default {
     const options = {
       autoplay: true,
       controls: true,
-      playbackRates: [0.5, 1, 1.5, 2]
-    }
+      playbackRates: [0.5, 1, 1.5, 2],
+    };
 
     const player = videojs(this.$refs.videoPlayer, options, () => {
-      this.$emit('ready', player);
-    })
+      this.$emit("ready", player);
+    });
 
     player.src({
       src: "https://static.refined-x.com/static/1080p-watermark.mp4",
-      type: "video/mp4"
-    })
+      type: "video/mp4",
+    });
 
     player.markerPlugin().updateOptions({
       //  打点信息
       markers: [
         {
-          offset: 10
+          offset: 10,
         },
         {
           offset: 20,
           data: {
-            content: 'content2'
+            content: "content2",
           },
           onClick(e) {
-            e.stopPropagation()
-            alert(`mark2 click!`)
-          }
+            e.stopPropagation();
+            alert(`mark2 click!`);
+          },
         },
-      ]
+      ],
     });
-
   },
   beforeDestroy() {
     if (player) {
-      player.dispose()
+      player.dispose();
     }
-  }
-}
+  },
+};
 </script>
 
-<style scoped>a {
+<style scoped>
+a {
   color: #42b983;
-}</style>
+}
+</style>
