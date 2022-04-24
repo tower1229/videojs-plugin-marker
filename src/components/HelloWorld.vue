@@ -7,23 +7,28 @@
 
   <div style="width: 800px; margin: auto">
     <video ref="videoPlayer" class="video-js vjs-fluid"></video>
+    <p>
+      <a href="https://github.com/tower1229/videojs-plugin-marker"> Github </a>
+      <a
+        href="https://github.com/tower1229/videojs-plugin-marker/blob/master/README.md"
+      >
+        文档
+      </a>
+      <a href="https://refined-x.com/"> 博客 </a>
+    </p>
+    <p>
+      <img
+        src="/img/carbon.png"
+        alt=""
+        style="
+          display: block;
+          max-width: 100%;
+          margin: auto;
+          box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+        "
+      />
+    </p>
   </div>
-  <p>
-    <a href="https://github.com/tower1229/videojs-plugin-marker"> Github </a>
-    <a
-      href="https://github.com/tower1229/videojs-plugin-marker/blob/master/README.md"
-    >
-      文档
-    </a>
-    <a href="https://refined-x.com/"> 博客 </a>
-  </p>
-  <p>
-    <img
-      src="/img/carbon.png"
-      alt=""
-      style="display: block; max-width: 80%; margin: auto"
-    />
-  </p>
 </template>
 
 <script>
