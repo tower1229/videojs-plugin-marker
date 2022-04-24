@@ -5,25 +5,17 @@
     videojs进度条打点插件。基于[videojs-marker-plugin]()项目二次开发，支持marker点更新和marker点击事件；更换构建工具为Vite。
   </p>
 
-  <video
-    ref="videoPlayer"
-    class="video-js"
-    width="600"
-    height="400"
-    style="margin: auto"
-  ></video>
+  <div style="width: 800px; margin: auto">
+    <video ref="videoPlayer" class="video-js vjs-fluid"></video>
+  </div>
   <p>
-    <a
-      href="https://github.com/tower1229/videojs-plugin-marker"
-      style="margin: 0 10px"
-      >Github</a
-    >
+    <a href="https://github.com/tower1229/videojs-plugin-marker"> Github </a>
     <a
       href="https://github.com/tower1229/videojs-plugin-marker/blob/master/README.md"
-      style="margin: 0 10px"
-      >文档</a
     >
-    <a href="https://refined-x.com/" style="margin: 0 10px">博客</a>
+      文档
+    </a>
+    <a href="https://refined-x.com/"> 博客 </a>
   </p>
   <p>
     <img
@@ -86,5 +78,6 @@ export default {
 <style scoped>
 a {
   color: #42b983;
+  margin: 0 10px;
 }
 </style>
