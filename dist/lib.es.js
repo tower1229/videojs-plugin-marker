@@ -49,7 +49,6 @@ class MarkerPoint extends Component$1 {
     });
   }
   updatePosition(duration) {
-    console.log(this.offset, duration);
     this.el_ && (this.el_.style.left = this.offset / duration * 100 + "%");
   }
 }
