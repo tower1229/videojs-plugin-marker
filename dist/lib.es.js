@@ -1,6 +1,6 @@
-import videojs from "video.js";
-const Component$1 = videojs.getComponent("Component");
-const TimeTooltip = videojs.getComponent("TimeTooltip");
+import videojs$1 from "video.js";
+const Component$1 = videojs$1.getComponent("Component");
+const TimeTooltip = videojs$1.getComponent("TimeTooltip");
 class MarkerPointTip extends Component$1 {
   constructor(player, options) {
     super(player, options);
@@ -10,7 +10,7 @@ class MarkerPointTip extends Component$1 {
     this.addChild(this.timeToltip);
     this.addClass("vjs-marker-point-tip");
     this.timeToltip.el_.innerHTML = `
-      <p class="vjs-marker-point-tip-time">${videojs.formatTime(this.options.offset, 600)}</p>
+      <p class="vjs-marker-point-tip-time">${videojs$1.formatTime(this.options.offset, 600)}</p>
       <p class="vjs-marker-point-tip-content">${this.options.data ? this.options.data.content : ""}</p>
     `;
   }
@@ -44,7 +44,7 @@ class MarkerPoint extends Component$1 {
     });
   }
   createEl() {
-    return videojs.dom.createEl("div", {
+    return videojs$1.dom.createEl("div", {
       className: "vjs-marker-point"
     });
   }
@@ -52,7 +52,7 @@ class MarkerPoint extends Component$1 {
     this.el_ && (this.el_.style.left = this.offset / duration * 100 + "%");
   }
 }
-const Component = videojs.getComponent("Component");
+const Component = videojs$1.getComponent("Component");
 let playerDuration;
 class MarkerBar extends Component {
   static build(player, options) {
@@ -85,14 +85,21 @@ class MarkerBar extends Component {
     }
   }
   createEl() {
-    return videojs.dom.createEl("div", {
+    return videojs$1.dom.createEl("div", {
       className: "vjs-marker-bar"
     });
   }
 }
-videojs.registerComponent("MarkerBar", MarkerBar);
-const version = "0.0.6";
+videojs$1.registerComponent("MarkerBar", MarkerBar);
+const version = "0.0.7";
 var plugin = "";
+let videojs;
+if (window.videojs) {
+  videojs = window.videojs;
+  console.warn(`MarkerPlugin: \u68C0\u6D4B\u5230window.videojs`);
+} else {
+  videojs = videojs$1;
+}
 const Plugin = videojs.getPlugin("plugin");
 const defaults = {};
 class MarkerPlugin extends Plugin {
@@ -111,7 +118,11 @@ class MarkerPlugin extends Plugin {
     this.options = videojs.mergeOptions(defaults, options);
     if (this.markerBar)
       this.markerBar.dispose();
-    const container = this.player.getDescendant(["ControlBar", "ProgressControl", "SeekBar"]);
+    const container = this.player.getDescendant([
+      "ControlBar",
+      "ProgressControl",
+      "SeekBar"
+    ]);
     this.createMarkerBar();
     container.addChild(this.markerBar);
   }
