@@ -1,7 +1,7 @@
 {
   "name": "@tower1229/videojs-plugin-marker",
   "private": false,
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -18,7 +18,8 @@
     ".": {
       "import": "./dist/lib.es.js",
       "require": "./dist/lib.umd.js"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "dependencies": {
     "vue": "^3.2.25"
