@@ -1,6 +1,6 @@
 # videojs-plugin-marker
 
-videojs 进度条打点插件。基于[videojs-marker-plugin]()项目二次开发，支持 marker 点更新和 marker 点击事件；更换构建工具为 Vite。
+videojs 进度条打点插件。基于[videojs-marker-plugin]()项目二次开发，支持 marker 点更新和 marker 点击事件；更换构建工具为 Vite，支持 video.js@7.x。
 
 ![preivew](public/img/album.png)
 
